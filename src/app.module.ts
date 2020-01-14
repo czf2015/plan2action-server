@@ -5,14 +5,14 @@ import { DatabaseModule } from './modules/database/database.module'
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
-// import conf from '../config'
+// const { root } = require('../config')
 
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../..', 'static'),
-      // rootPath: `${conf.root}/static`,
+      rootPath: join(__dirname, '..', 'static'),
+      // rootPath: `${root}/static`,
     }),
     // TypeOrmModule.forRoot(), 
     CatsModule,

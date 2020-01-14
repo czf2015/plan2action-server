@@ -1,17 +1,15 @@
 module.exports = {
-    develop: {
-        type: 'mysql'
+    local: {
         host: '',
         port: '',
-        username: 'root',
-        password: 'mysql'
+        username: '',
+        password: ''
     },
-    product: {
-        type: 'mysql'
+    production: {
         host: '',
         port: '',
-        username: 'root',
-        password: 'mysql'
+        username: '',
+        password: ''
     },
-    // CLOUD: 'mongodb://127.0.0.1:27017/cloud',
+    CLOUD: 'mongodb://127.0.0.1:27017/cloud',
 }

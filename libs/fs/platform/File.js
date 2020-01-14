@@ -35,8 +35,7 @@ function copy(src, dst) {
             fs.stat(src, (err, stat) => {
                 if (err) throw err
                 if (stat.isFile()) {
-                    const filename = src.split('/').slice(-1)[0]
-                    pipe(src, `${dst}/${filename}`)
+                    pipe(src, `${dst}/${path.basename(src)}`)
                 } else {
                     fs.readdir(src, (err, paths) => {
                         if (err) throw err
@@ -125,6 +124,33 @@ async function tranverse(dir, visit) {
     }
 }
 
+function find(src, filename) {
+    src = path.resolve(__dirname, src)
+    fs.exists(src, isExist => {
+        if (isExist) {
+            fs.stat(src, (err, stat) => {
+                if (err) throw err
+                if (stat.isFile()) {
+                    if (path.basename(src) === filename) {
+                        console.log(src)
+                    }
+                } else {
+                    fs.readdir(src, (err, paths) => {
+                        if (err) throw err
+                        paths.forEach(path => {
+                            const _src = `${src}/${path}`
+                            find(_src, filename)                            
+                        })
+                    })
+                }
+            })
+        } else {
+            console.warn(`${src} not exist`)
+        }
+    })
+}
+
+
 
 module.exports = {
     isExist,
@@ -136,4 +162,5 @@ module.exports = {
     remove,
     rename,
     tranverse,
+    find,
 }
