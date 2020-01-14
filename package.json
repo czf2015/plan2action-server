@@ -36,6 +36,7 @@
     "rxjs-compat": "",
      "@nestjs/typeorm": "",
      "@nestjsx/crud-typeorm": "",
+     "@hapi/joi": "",
      "immutability-helper": ""
   },
   "devDependencies": {

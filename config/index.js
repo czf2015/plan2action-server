@@ -3,6 +3,7 @@ module.exports = {
     Logger: {
         level: 2,
     },
+    root: '',
 }
 
 
