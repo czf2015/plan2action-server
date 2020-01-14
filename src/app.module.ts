@@ -1,16 +1,18 @@
 import { Module, NestModule, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { LoggerMiddleware } from './middlewares/logger.middleware';
-import {CatsModule} from './modules/cats/cats.module'
-import {DatabaseModule} from './modules/database/database.module'
+import { CatsModule } from './modules/cats/cats.module'
+import { DatabaseModule } from './modules/database/database.module'
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
+// import { join } from 'path';
+import { root } from '../config'
 
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'static'),
+      // rootPath: join(__dirname, '..', 'static'),
+      rootPath: `${root}/static`,
     }),
     // TypeOrmModule.forRoot(), 
     CatsModule,
