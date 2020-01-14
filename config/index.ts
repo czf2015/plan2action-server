@@ -1,9 +1,9 @@
-module.exports = {
+export default {
     params: process.argv.slice(2),
     Logger: {
         level: 2,
     },
-    root: '',
+    root: '/mnt/d/workspace/nest',
 }
 
 
