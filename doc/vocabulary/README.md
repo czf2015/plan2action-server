@@ -62,6 +62,8 @@ extends/exclude/include
 synchronize
 pattern
 payload
+spectrum
+riddle/crawl/spider
 
 
 

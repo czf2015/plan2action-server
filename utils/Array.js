@@ -49,12 +49,21 @@ function table(arr) {
     return result
 }
 
-function divide(arr, num = 2) {
-    const groups = []
-    for (let i = j = 0; i < arr.length; i += num) {
-        groups[j++] = arr.slice(i, i + num)
-    }
-    return groups
+function devide(arr, num = 2) {
+  const rows = []
+  const len = arr.length
+  for (let i = 0; i < len; i += num) {
+      const cols = []
+      for (let j = 0; j < num; j++) {
+          if (i + j < len) {
+              cols.push(arr[i + j])
+          } else {
+              break
+          }
+      }
+      rows.push(cols)
+  }
+  return rows
 }
 
 function pair(a, b) {

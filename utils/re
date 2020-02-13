@@ -1,4 +1,9 @@
 #!/bin/sh
+# reference：[利用shell批量更改文件后缀名](https://blog.csdn.net/buxiaoxindasuile/article/details/50791050)
+# usage: sh re <oldsuffix> <newsuffix>
+    # oldsuffix是文件旧的后缀，newsuffix是文件新的后缀;
+    # $(cmd)是命令替换，会在语句运行时执行cmd命令，然后返回cmd命令的执行结果；eval 的作用是再次执行命令行处理（不是对一个命令执行两次），也就是将eval后跟的参数整合成正确的命令行命令执行。$(eval pwd)执行后返回的结果是脚本所在的目录路径;
+    # 在循环语句中我们使用cut命令将匹配的文件name剪切出来。cut命令从文件的每一行剪切字节、字符和字段并将其送至标准输出。参数-d用于自定义分隔符，默认为制表符,程序中的-d.表示以.作为分隔符；参数-f指定截取显示哪个区域，-f1表示截取第一个区域，也就是文件名的name。
 
 oldsuffix=$1
 newsuffix=$2
@@ -10,5 +15,3 @@ for file in $(ls $dir | grep .${oldsuffix})
         mv $file ${name}.${newsuffix}
     done
 echo "change successd!"
-
-# 参考：https://blog.csdn.net/buxiaoxindasuile/article/details/50791050
